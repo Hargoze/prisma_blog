@@ -3,15 +3,10 @@ import { List, Heading, Text, Link, ListItem } from '@chakra-ui/core';
 
 export async function getStaticProps() {
   const prisma = new PrismaClient();
-  const songs = await prisma.song.findMany({
-    include: { artist: true }
-  });
-  const blog = await prisma.blog.findMany()
   const posts = await prisma.post.findMany()
 
   return {
     props: {
-      songs,
       posts
     }
   };
