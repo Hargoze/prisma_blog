@@ -1,0 +1,71 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+  margin-left: 30px;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  color: #fc5130;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.markdown h1 {
+  font-size: 42px; 
+}
+
+.markdown h2 {
+  font-size: 30px;
+}
+
+.markdown h3 {
+  font-size: 26px;
+}
+
+.markdown h4 {
+  font-size: 22px;
+}
+
+.markdown a {
+  color: #fc5130;
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+.markdown ol ol,
+.markdown ul ol {
+  margin-left: 1.5rem;
+  list-style-type: lower-roman;
+}
+
+.markdown ol ol ol,
+.markdown ol ul ol,
+.markdown ul ol ol,
+.markdown ul ul ol {
+  margin-left: 1.5rem;
+  list-style-type: lower-alpha;
+}
+
+.markdown li {
+  margin-left: 1.5rem;
+}
+
+.markdown blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+/* src: https://github.com/sindresorhus/github-markdown-css/blob/gh-pages/github-markdown.css */

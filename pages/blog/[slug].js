@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import { Box, Heading, Text, Button, Link } from '@chakra-ui/core';
-import NextLink from 'next/link';
+import fs from 'fs'
+import path from 'path'
+import PostMarkdown from "../../components/post-markdown"
 
 export async function getStaticProps({ params }) {
   const prisma = new PrismaClient();
@@ -9,9 +11,13 @@ export async function getStaticProps({ params }) {
       slug: params.slug
     }
   });
+  const content = fs
+    .readFileSync(path.join("posts/", post.content))
+    .toString();
   return {
     props: {
-      post
+      post,
+      content
     }
   };
 }
@@ -29,12 +35,15 @@ export async function getStaticPaths() {
   };
 }
 
-export default ({ post }) => (
-  <Box mt={8}>
-    <Heading fontWeight="800">{post.titre}</Heading>
-    <Text>{post.content}</Text>
-    <Link href="/">
-    <Button>Back to home</Button>
-    </Link>
-  </Box>
-);
+export default ({ post, content }) => {
+
+  return (
+    <Box mt={8}>
+      <Heading fontWeight="800">{post.titre}</Heading>
+      <PostMarkdown content={content} />
+      <Link href="/">
+      <Button>Back to home</Button>
+      </Link>
+    </Box>
+  );
+}
