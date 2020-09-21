@@ -19,7 +19,7 @@ export default ({ posts }) => (
     </Heading>
     <List>
       {posts.map((post) => (
-        <ListItem>
+        <ListItem key={post.slug}>
           <Link href={`blog/${post.slug}`} >{post.titre}</Link>
         </ListItem>
       ))}
