@@ -27,5 +27,6 @@ model Post {
   titre String
   content String
   slug String @default(uuid())
+  coverImage String @default("/centerLogo.svg")
   @@unique([slug])
 }

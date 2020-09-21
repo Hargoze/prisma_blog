@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { Box, Heading, Text, Button, Link } from '@chakra-ui/core';
+import { Box, Heading, Text, Button, Link, Image } from '@chakra-ui/core';
 import fs from 'fs'
 import path from 'path'
 import PostMarkdown from "../../components/post-markdown"
@@ -36,10 +36,11 @@ export async function getStaticPaths() {
 }
 
 export default ({ post, content }) => {
-
+  //console.log("coverImg", post.coverImage)
   return (
     <Box mt={8}>
       <Heading fontWeight="800">{post.titre}</Heading>
+      <Image src={post.coverImage} alt="cover image"/>
       <PostMarkdown content={content} />
       <Link href="/">
       <Button>Back to home</Button>
